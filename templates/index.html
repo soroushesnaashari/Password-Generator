@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator by Mohammad Soroush Esnaashari</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Cutive Mono', monospace;
+            background-color: #586c5c;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #a9af90;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            margin-bottom: 3rem; /* Was 1.5rem */
+            font-size: 2rem;
+            color: #fff;
+        }
+        .mode-toggle {
+            margin-bottom: 1.5rem;
+        }
+        .mode-toggle button {
+            background-color: #85937a;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .mode-toggle button.active {
+            background-color: #586c5c;
+        }
+        .mode-toggle button:not(.active):hover {
+            background-color: #586c5c;
+        }
+        .generate-button {
+            background-color: #586c5c;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .generate-button:hover {
+            background-color: #85937a;
+        }
+        .password-container {
+            margin-top: 1.5rem;
+        }
+        .password {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+        .copy-button {
+            background-color: #586c5c;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .copy-button:hover {
+            background-color: #85937a;
+        }
+        .footer {
+            margin-top: 4rem; /* Increased margin */
+            font-size: 0.875rem;
+            color: #fff;
+        }
+        .social-icons {
+            margin-bottom: 0.25rem; /* Reduced margin */
+        }
+        .social-icons a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 0.5rem;
+            font-size: 1.25rem;
+        }
+        .social-icons a:hover {
+            color: #85937a;
+        }
+        .footer p {
+            margin: 0; /* Removed margin */
+            font-size: 0.875rem;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Password Generator</h1>
+        <div class="mode-toggle">
+            <button id="simple-mode" class="{{ 'active' if mode == 'simple' else '' }}" onclick="setMode('simple')">Simple</button>
+            <button id="complex-mode" class="{{ 'active' if mode == 'complex' else '' }}" onclick="setMode('complex')">Complex</button>
+        </div>
+        <form method="POST">
+            <input type="hidden" id="mode" name="mode" value="{{ mode }}">
+            <button type="submit" class="generate-button">Generate Password</button>
+        </form>
+
+        {% if password %}
+            <div class="password-container">
+                <p class="password" id="generated-password">{{ password }}</p>
+                <button class="copy-button" onclick="copyPassword()">Copy Password</button>
+            </div>
+        {% endif %}
+
+        <div class="footer">
+            <div class="social-icons">
+                <a href="https://soroushesnaashari.github.io" target="_blank"><i class="fas fa-globe"></i></a>
+                <a href="https://linkedin.com/in/soroushesnaashari" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/soroushesnaashari" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+            <p>Created by Mohammad Soroush Esnaashari</p>
+        </div>
+    </div>
+
+    <script>
+        function setMode(mode) {
+            document.getElementById('mode').value = mode;
+            document.getElementById('simple-mode').classList.remove('active');
+            document.getElementById('complex-mode').classList.remove('active');
+            document.getElementById(`${mode}-mode`).classList.add('active');
+        }
+
+        function copyPassword() {
+            const passwordElement = document.getElementById('generated-password');
+            const passwordText = passwordElement.innerText;
+
+            // Copy the password to the clipboard
+            navigator.clipboard.writeText(passwordText)
+                .then(() => {
+                    alert('Password copied to clipboard!');
+                })
+                .catch(() => {
+                    alert('Failed to copy password.');
+                });
+        }
+    </script>
+</body>
+</html>
