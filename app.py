@@ -5,7 +5,6 @@ import string
 app = Flask(__name__)
 
 def generate_password(mode):
-    # Define character sets
     lowercase_letters = string.ascii_lowercase
     uppercase_letters = string.ascii_uppercase
     digits = string.digits
@@ -14,7 +13,6 @@ def generate_password(mode):
     # Combine all character sets
     all_characters = lowercase_letters + uppercase_letters + digits + ''.join(symbols)
 
-    # Determine the number of segments based on mode
     if mode == 'simple':
         segments = 3
     elif mode == 'complex':
@@ -24,10 +22,8 @@ def generate_password(mode):
 
     password = []
     for i in range(segments):
-        # Add 4 random characters
         segment = ''.join(random.choices(all_characters, k=4))
         password.append(segment)
-        # Add a hyphen (except after the last segment)
         if i < segments - 1:
             password.append('-')
 
