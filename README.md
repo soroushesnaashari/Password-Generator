@@ -13,7 +13,7 @@ A simple and secure web application for generating random passwords. Users can c
 - **Secure Passwords**: Includes uppercase letters, lowercase letters, numbers, and special symbols (`!@#$%&`).
 - **Copy to Clipboard**: Easily copy generated passwords with a single click.
 - **Responsive Design**: Works seamlessly on both desktop and mobile devices.
-- **Social Links**: Connect with the creator via Website, LinkedIn, GitHub, and X (Twitter).
+- **Social Links**: Connect with the creator via Website, LinkedIn and GitHub.
 
 <br>
 
