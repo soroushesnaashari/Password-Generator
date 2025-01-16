@@ -1,4 +1,4 @@
-## Password Generator Web App
+## Password Generator Web Application
 [![](screenshot.png)](https://soroushesnaashari.github.io/Password-Generator-App/)
 
 A simple and secure web application for generating random passwords. Users can choose between **Simple** and **Complex** password formats, ensuring strong and customizable passwords for their needs.
