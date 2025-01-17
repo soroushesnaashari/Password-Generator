@@ -9,7 +9,7 @@
     <style>
         body {
             font-family: 'Cutive Mono', monospace;
-            background-color: #586c5c;
+            background-color: #FFFFFF;
             color: #333;
             display: flex;
             justify-content: center;
@@ -18,7 +18,7 @@
             margin: 0;
         }
         .container {
-            background: #a9af90;
+            background: #000000;
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -29,14 +29,14 @@
         h1 {
             margin-bottom: 3rem;
             font-size: 2rem;
-            color: #fff;
+            color: #FFFFFF;
         }
         .mode-toggle {
             margin-bottom: 1.5rem;
         }
         .mode-toggle button {
-            background-color: #85937a;
-            color: white;
+            background-color: #a7a7a7;
+            color: #000000;
             border: none;
             padding: 0.5rem 1rem;
             font-size: 1rem;
@@ -45,14 +45,14 @@
             transition: background-color 0.3s ease;
         }
         .mode-toggle button.active {
-            background-color: #586c5c;
+            background-color: #FFFFFF;
         }
         .mode-toggle button:not(.active):hover {
-            background-color: #586c5c;
+            background-color: #FFFFFF;
         }
         .generate-button {
-            background-color: #586c5c;
-            color: white;
+            background-color: #FFFFFF;
+            color: #000000;
             border: none;
             padding: 0.75rem 1.5rem;
             font-size: 1rem;
@@ -61,7 +61,7 @@
             transition: background-color 0.3s ease;
         }
         .generate-button:hover {
-            background-color: #85937a;
+            background-color: #a7a7a7;
         }
         .password-container {
             margin-top: 1.5rem;
@@ -69,12 +69,12 @@
         .password {
             font-size: 1.25rem;
             font-weight: bold;
-            color: #fff;
+            color: #FFFFFF;
             margin-bottom: 1rem;
         }
         .copy-button {
-            background-color: #586c5c;
-            color: white;
+            background-color: #FFFFFF;
+            color: #000000;
             border: none;
             padding: 0.5rem 1rem;
             font-size: 0.875rem;
@@ -83,29 +83,29 @@
             transition: background-color 0.3s ease;
         }
         .copy-button:hover {
-            background-color: #85937a;
+            background-color: #a7a7a7;
         }
         .footer {
             margin-top: 4rem;
             font-size: 0.875rem;
-            color: #fff;
+            color: #FFFFFF;
         }
         .social-icons {
             margin-bottom: 0.25rem;
         }
         .social-icons a {
-            color: #fff;
+            color: #FFFFFF;
             text-decoration: none;
             margin: 0 0.5rem;
             font-size: 1.25rem;
         }
         .social-icons a:hover {
-            color: #85937a;
+            color: #a7a7a7;
         }
         .footer p {
             margin: 0;
             font-size: 0.875rem;
-            color: #fff;
+            color: #FFFFFF;
         }
     </style>
 </head>
@@ -133,9 +133,9 @@
                 <a href="https://soroushesnaashari.github.io" target="_blank"><i class="fas fa-globe"></i></a>
                 <a href="https://linkedin.com/in/soroushesnaashari" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/soroushesnaashari" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://x.com/srshesn" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://twitter.com/srshesn" target="_blank"><i class="fab fa-twitter"></i></a>
             </div>
-            <p>Created by Mohammad Soroush Esnaashari</p>
+            <p>Created by <strong>Mohammad Soroush Esnaashari</strong></p>
         </div>
     </div>
 
@@ -151,7 +151,6 @@
             const passwordElement = document.getElementById('generated-password');
             const passwordText = passwordElement.innerText;
 
-            // Copy the password to the clipboard
             navigator.clipboard.writeText(passwordText)
                 .then(() => {
                     alert('Password copied to clipboard!');
