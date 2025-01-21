@@ -124,7 +124,7 @@
         {% if password %}
             <div class="password-container">
                 <p class="password" id="generated-password">{{ password }}</p>
-                <button class="copy-button" onclick="copyPassword()">Copy Password</button>
+                <button class="copy-button" id="copy-button" onclick="copyPassword()">Copy Password</button>
             </div>
         {% endif %}
 
@@ -150,10 +150,14 @@
         function copyPassword() {
             const passwordElement = document.getElementById('generated-password');
             const passwordText = passwordElement.innerText;
+            const copyButton = document.getElementById('copy-button');
 
             navigator.clipboard.writeText(passwordText)
                 .then(() => {
-                    alert('Password copied to clipboard!');
+                    copyButton.innerText = 'Copied!';
+                    setTimeout(() => {
+                        copyButton.innerText = 'Copy Password';
+                    }, 2000);
                 })
                 .catch(() => {
                     alert('Failed to copy password.');
